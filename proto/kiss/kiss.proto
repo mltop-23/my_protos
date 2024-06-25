@@ -30,32 +30,32 @@ message AddFamilyRequest {
   string password = 2;
   string husband = 3;
   string wife = 4;
-  int32 kisses = 5;
-  int32 husband_debt = 6;
-  int32 wife_debt = 7;
+  int64 kisses = 5;
+  int64 husband_debt = 6;
+  int64 wife_debt = 7;
   bool is_admin = 8;
 }
 
 message AddFamilyResponse {
-  int32 family_id = 1;
+  int64 family_id = 1;
 }
 
 message GetFamilyRequest {
-  int32 family_id = 1;
+  int64 family_id = 1;
 }
 
 message GetFamilyResponse {
-  int32 id = 1;
+  int64 id = 1;
   string email = 2;
   string husband = 3;
   string wife = 4;
-  int32 kisses = 5;
-  int32 husband_debt = 6;
-  int32 wife_debt = 7;
+  int64 kisses = 5;
+  int64 husband_debt = 6;
+  int64 wife_debt = 7;
 }
 
 message DeleteFamilyRequest {
-  int32 family_id = 1;
+  int64 family_id = 1;
 }
 
 message DeleteFamilyResponse {
@@ -66,20 +66,20 @@ message DeleteFamilyResponse {
 message AddDishRequest {
   string dish_name = 1;
   string recipe = 2;
-  int32 cooking_time = 3;
+  int64 cooking_time = 3;
   string complexity = 4;
   string taste = 5;
-  int32 kisses = 6;
+  int64 kisses = 6;
   bool general = 7;
-  int32 family_id = 8;
+  int64 family_id = 8;
 }
 
 message AddDishResponse {
-  int32 dish_id = 1;
+  int64 dish_id = 1;
 }
 
 message RemoveDishRequest {
-  int32 dish_id = 1;
+  int64 dish_id = 1;
 }
 
 message RemoveDishResponse {
@@ -103,8 +103,8 @@ message LogoutResponse {
 }
 
 message UpdateKissesRequest {
-  int32 family_id = 1;
-  int32 amount = 2;
+  int64 family_id = 1;
+  int64 amount = 2;
 }
 
 message UpdateKissesResponse {
@@ -112,8 +112,8 @@ message UpdateKissesResponse {
 }
 
 message UpdateDebtRequest {
-  int32 family_id = 1;
-  int32 amount = 2;
+  int64 family_id = 1;
+  int64 amount = 2;
 }
 
 message UpdateDebtResponse {
