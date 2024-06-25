@@ -1,0 +1,121 @@
+syntax = "proto3";
+
+package Auth;
+
+option go_package = "tkiss.v1;kissv1";
+
+
+// Определение сервиса PromoService
+service Auth {
+  rpc AddFamily (AddFamilyRequest) returns (AddFamilyResponse);
+  rpc GetFamily (GetFamilyRequest) returns (GetFamilyResponse);
+  rpc DeleteFamily (DeleteFamilyRequest) returns (DeleteFamilyResponse);
+  rpc Login (LoginRequest) returns (LoginResponse);
+  rpc Logout (LogoutRequest) returns (LogoutResponse);
+
+  rpc IncreaseKisses (UpdateKissesRequest) returns (UpdateKissesResponse);
+  rpc DecreaseKisses (UpdateKissesRequest) returns (UpdateKissesResponse);
+  rpc IncreaseWifeDebt (UpdateDebtRequest) returns (UpdateDebtResponse);
+  rpc DecreaseWifeDebt (UpdateDebtRequest) returns (UpdateDebtResponse);
+  rpc IncreaseHusbandDebt (UpdateDebtRequest) returns (UpdateDebtResponse);
+  rpc DecreaseHusbandDebt (UpdateDebtRequest) returns (UpdateDebtResponse);
+
+  rpc AddDish (AddDishRequest) returns (AddDishResponse);
+  rpc RemoveDish (RemoveDishRequest) returns (RemoveDishResponse);
+}
+
+// Определение запросов и ответов для Family
+message AddFamilyRequest {
+  string email = 1;
+  string password = 2;
+  string husband = 3;
+  string wife = 4;
+  int32 kisses = 5;
+  int32 husband_debt = 6;
+  int32 wife_debt = 7;
+  bool is_admin = 8;
+}
+
+message AddFamilyResponse {
+  int32 family_id = 1;
+}
+
+message GetFamilyRequest {
+  int32 family_id = 1;
+}
+
+message GetFamilyResponse {
+  int32 id = 1;
+  string email = 2;
+  string husband = 3;
+  string wife = 4;
+  int32 kisses = 5;
+  int32 husband_debt = 6;
+  int32 wife_debt = 7;
+}
+
+message DeleteFamilyRequest {
+  int32 family_id = 1;
+}
+
+message DeleteFamilyResponse {
+  bool success = 1;
+}
+
+// Определение запросов и ответов для Dish
+message AddDishRequest {
+  string dish_name = 1;
+  string recipe = 2;
+  int32 cooking_time = 3;
+  string complexity = 4;
+  string taste = 5;
+  int32 kisses = 6;
+  bool general = 7;
+  int32 family_id = 8;
+}
+
+message AddDishResponse {
+  int32 dish_id = 1;
+}
+
+message RemoveDishRequest {
+  int32 dish_id = 1;
+}
+
+message RemoveDishResponse {
+  bool success = 1;
+}
+message LoginRequest {
+  string email = 1; // Email of the user to login.
+  string password = 2; // Password of the user to login.
+}
+
+message LoginResponse {
+  string token = 1; // Auth token of the logged in user.
+}
+
+message LogoutRequest {
+  string token = 1; // Auth token of the user to logout.
+}
+
+message LogoutResponse {
+  bool success = 1; // Indicates whether the logout was successful.
+}
+
+message UpdateKissesRequest {
+  int32 family_id = 1;
+  int32 amount = 2;
+}
+
+message UpdateKissesResponse {
+  bool success = 1;
+}
+
+message UpdateDebtRequest {
+  int32 family_id = 1;
+  int32 amount = 2;
+}
+
+message UpdateDebtResponse {
+  bool success = 1;
+}
