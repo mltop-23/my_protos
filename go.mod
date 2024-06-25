@@ -1,4 +1,4 @@
-module grpc/my_protos
+module  github.com/mltop-23/my_protos
 
 go 1.22.3
 
