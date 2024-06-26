@@ -47,11 +47,12 @@ message GetFamilyRequest {
 message GetFamilyResponse {
   int64 id = 1;
   string email = 2;
-  string husband = 3;
-  string wife = 4;
-  int64 kisses = 5;
-  int64 husband_debt = 6;
-  int64 wife_debt = 7;
+  string password = 3;
+  string husband = 4;
+  string wife = 5;
+  int64 kisses = 6;
+  int64 husband_debt = 7;
+  int64 wife_debt = 8;
 }
 
 message DeleteFamilyRequest {
